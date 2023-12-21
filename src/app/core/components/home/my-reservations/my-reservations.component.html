@@ -1,0 +1,42 @@
+<div class="container  shadow p-3 ">
+  <span class="click goback" (click)="goback()"><i class="fa-solid fa-angles-left mt-2 " style="color: #0d49af;"></i>
+    Previous </span>
+  <h3 class="text-center mb-4 fw-5 text-primary">My Reservations</h3>
+  <hr />
+  <div class="d-flex justify-content-center col-12 col-sm-8 mx-auto my-2" *ngIf="reservationService.isLoading">
+    <div class="spinner-grow" role="status"> </div>
+  </div>
+
+  <ng-container *ngIf="myReservation != null; else noReservations">
+    <div class="table-responsive">
+      <table datatable class="table  table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="text-center text-primary">Against Who</th>
+            <th class="text-center text-primary">Date Match</th>
+            <th class="text-center text-primary">Date Reservation</th>
+            <th class="text-center text-primary">Terrain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reservation of myReservation">
+            <td class="text-center">{{ reservation.against_who }}</td>
+            <td class="text-center">
+              {{ formatDate(reservation.date_match) }} /
+             
+              {{ formatDateRange(reservation.date_match) }}
+            </td>
+            <td class="text-center">{{ formatDatewithHoursandSecondes(reservation.date_reservation) }}</td>
+            <td class="text-center">{{ reservation.terrain.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+  <ng-template #noReservations>
+
+    <div class="alert alert-danger text-center">
+      You have no reservations.
+    </div>
+  </ng-template>
+</div>

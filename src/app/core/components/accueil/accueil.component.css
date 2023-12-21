@@ -1,0 +1,60 @@
+.btn-sophisticated {
+    background-color: #0D6EFC;
+    border-color: #2935b9;
+    color: #ffffff;
+    border-radius: 20px;
+    /* padding: px 24px; */
+    transition: transform 0.2s, background-color 0.3s;
+    /* display: flex; */
+    /* align-items: center; */
+  }
+  
+  .btn-sophisticated:hover {
+    background-color: #ffffff;
+    color: #2935b9;;
+    transform: scale(1.05);
+  }
+  
+  .btn-text {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .btn-sophisticated i {
+    margin-left: 8px;
+  }
+
+
+  .border-sophisticated {
+    position: relative;
+    padding-right: 20px; /* Espace pour l'élément décoratif */
+}
+
+.border-sophisticated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0.1px;
+    background-color: #c3c2c2; /* Couleur de bordure sophistiquée */
+    transform: translateX(50%);
+    
+}
+
+
+.test{
+  background-color: rgb(245, 245, 245);
+  /* background-image: url("/src/assets/logo.png"); */
+}
+
+
+/* .school{
+  background-color: #EFEFEF;
+} */
+
+
+
+  
+  
+  

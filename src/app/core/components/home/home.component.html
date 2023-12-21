@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container px-5">
+    <a class="navbar-brand fw-bolder fst-italic" [routerLink]="['/accueil']" >ENSAH TERRAIN <i class="fa-solid fa-futbol" style="color: #2861c3;"></i> </a>
+    
+    <button class="navbar-toggler my-2" type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed "><span
+        class="navbar-toggler-icon"></span></button>
+
+
+    <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed ">
+     
+      
+      <div class="btn-group ms-auto" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <div class="d-flex align-items-center">
+          <ul class="navbar-nav ms-auto  mb-lg-0">
+            <button class="nav-item btn btn-outline-light mx-2" [routerLink]="['/home/reserve']" ><i class="fa-solid fa-plus"></i> Add Reservation</button>
+          </ul>
+          <button type="button" class="btn btn-outline-light" ngbDropdownToggle> <i class="fa-solid fa-user" ></i> Profile </button>
+        </div>
+        <div class="dropdown-menu" ngbDropdownMenu>
+          <button ngbDropdownItem [routerLink]="['/home/profile']"> <i class="fa-solid fa-eye"></i> Show Profile </button>
+          <button ngbDropdownItem [routerLink]="['/home/editprofile']"> <i class="fa-solid fa-user-pen"></i> Edit Profile </button>
+          <button ngbDropdownItem   [routerLink]="['/home/myreservations']"> <i class="fa-solid fa-rectangle-list"></i> My Reservations </button>
+          <button ngbDropdownItem   [routerLink]="['/home/reserveradmin']" *ngIf="role === 'ROLE_ADMIN'"> <i class="fa-solid fa-file-pen"></i> Handle Reservations </button>
+          <div class="dropdown-divider"></div>
+          <button (click)="signOut()" class="btn btn-primary" ngbDropdownItem > <i class="fa-solid fa-right-from-bracket mx-1"></i>Sign Out </button>
+        </div>
+      </div>
+    </div>
+ </div>
+</nav>
+
+
+
+<router-outlet></router-outlet>
